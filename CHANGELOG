@@ -1,3 +1,9 @@
+2019-11-29 Frederic Schaer
+    * add puppet4/5/6 support
+    * add base_uid and group params to various functions, to allow for these to be defined in yaml, and then to allow the yaml to be shared with other scripts that will create the users.
+      might change if/when I find time to make sure the created ressources can safely ignore these.
+    * fix bugs
+    * use lookup() instead of hiera()
 2013-03-08 Ulrich Schwickerath <ulrich.schwickerath at cern.ch>
 
     * First Release

@@ -6,21 +6,21 @@ class vosupport::vo_mappings()
     owner =>  'root',
     group =>  'root',
     mode  =>  '0644',
-    warn => "# File managed by Puppet module vosupport",         
+    warn => "# File managed by Puppet module vosupport\n",
   }
 
   concat{'/etc/grid-security/voms-grid-mapfile':
     owner =>  'root',
     group =>  'root',
     mode  =>  '0644',
-    warn => "# File managed by Puppet module vosupport",         
+    warn => "# File managed by Puppet module vosupport\n",
   }
   
   concat{'/etc/grid-security/groupmapfile':
     owner =>  'root',
     group =>  'root',
     mode  =>  '0644',
-    warn => "# File managed by Puppet module vosupport",         
+    warn => "# File managed by Puppet module vosupport\n",
   }
 
 }

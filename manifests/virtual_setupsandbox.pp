@@ -5,6 +5,8 @@ define vosupport::virtual_setupsandbox (
   $services='',
   $static='',
   $voname='',
+  $base_uid = undef,
+  $group = undef,
 )
 {
   @vosupport::setupsandbox {$name:

@@ -31,19 +31,19 @@ define vosupport::enable_vo (
     
     if ($enable_poolaccounts) {
       include vosupport::vo_poolaccounts      
-      Setuphome <| voname == $voname |>
+      Vosupport::Setuphome <| voname == $voname |>
     }
     
     if ($enable_environment) {
       include vosupport::vo_environment
-      Voenv  <| voname == $voname |>
+      Vosupport::Voenv  <| voname == $voname |>
     }
     
     if $enable_mappings_for_service != undef {
       include vosupport::vo_mappings
       
       #create file fragments for the specified VO and service
-      $vomappingdata = hiera_hash('vosupport::mappings',undef)
+      $vomappingdata = lookup('vosupport::mappings', { 'default_value' => undef })
       
       concat::fragment{"${voname}_mapfile": 
 	target  => "/etc/grid-security/grid-mapfile",
@@ -76,17 +76,17 @@ define vosupport::enable_vo (
     
     if $enable_gridmapdir {
       include vosupport::vo_gridmapdir
-      Setupgridmapdir <| voname == $voname |>
+      Vosupport::Setupgridmapdir <| voname == $voname |>
     }
     
     if $enable_sudoers {
       include vosupport::vo_sudoers
-      Setupsudoers <| voname == $voname |>
+      Vosupport::Setupsudoers <| voname == $voname |>
     }
     
     if $enable_sandboxdir {
       include vosupport::vo_sandboxdir
-      Setupsandbox  <| voname == $voname |>
+      Vosupport::Setupsandbox  <| voname == $voname |>
     }
 }
 

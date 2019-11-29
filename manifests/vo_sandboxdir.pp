@@ -5,13 +5,13 @@ class vosupport::vo_sandboxdir {
       ensure => 'directory',
       owner => 'tomcat',
       group => 'tomcat',
-      mode => 0775
+      mode => '0775'
     }
   }
   #
   # we only need the group ID here for each vo name
   # just loop over the mappings hash which has all the information which we need
 
-  $mappings = hiera_hash('vosupport::mappings',undef)
+  $mappings = lookup('vosupport::mappings', { 'default_value' => undef })
   create_resources('vosupport::virtual_setupsandbox',$mappings)
 }

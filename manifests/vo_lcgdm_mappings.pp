@@ -10,7 +10,7 @@ class vosupport::vo_lcgdm_mappings(
      owner =>  'root',
      group =>  'root',
      mode  =>  '0644',
-     warn => "# File managed by Puppet module vosupport",
+     warn => "# File managed by Puppet module vosupport\n",
    }
    concat::fragment{'lcgdmmkgridmapconf footer':
      target  => $configfile,
@@ -22,12 +22,12 @@ class vosupport::vo_lcgdm_mappings(
       ensure => present,
       owner  => root,
       group  => root,
-      mode   => 644;
+      mode   => '0644';
      "$localmapfile":
       ensure => present,
       owner  => root,
       group  => root,
-      mode   => 644
+      mode   => '0644'
    }
 
    # for edg-mkgridmap   

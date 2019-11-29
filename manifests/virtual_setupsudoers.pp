@@ -4,6 +4,8 @@ define vosupport::virtual_setupsudoers (
   $start=1,
   $digits=3,
   $voname='',
+  $base_uid = undef,
+  $group = undef,
 )
 {
   @vosupport::setupsudoers {$name:

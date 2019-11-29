@@ -14,7 +14,7 @@ class vosupport::vo_poolaccounts() inherits vosupport::uidmap
       ensure => directory,
       owner   => root,
       group   => root,
-      mode    => 0755,
+      mode    => '0755',
   }
   
   file {
@@ -23,7 +23,7 @@ class vosupport::vo_poolaccounts() inherits vosupport::uidmap
       ensure => directory,
       owner   => root,
       group   => root,
-      mode    => 0755,
+      mode    => '0755',
   }
   
   file {"/home/grid":
@@ -31,6 +31,6 @@ class vosupport::vo_poolaccounts() inherits vosupport::uidmap
     target => "/pool/grid"
   }
 
-  $poolaccounts = hiera_hash('vosupport::poolaccounts',undef)
+  $poolaccounts = lookup('vosupport::poolaccounts', { 'default_value' => undef })
   create_resources('vosupport::virtual_setuphome',$poolaccounts, {homeroot => '/pool/grid'})
 }

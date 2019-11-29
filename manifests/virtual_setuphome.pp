@@ -5,6 +5,8 @@ define vosupport::virtual_setuphome (
   $digits=3,
   $homeroot='/pool/grid',
   $voname='',
+  $base_uid = undef,
+  $group = undef,
 )
 {
   @vosupport::setuphome{$name:
